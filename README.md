@@ -270,3 +270,38 @@ python manage.py makemigrations job
 
 python manage.py migrate  
 
+python -m venv myenv
+
+source myenv/bin/activate
+
+pip freeze > requirements.txt
+
+pip install -r requirements.txt
+
+gunicorn --bind 0.0.0.0:8000 myproject.wsgi:application
+
+sudo vim /etc/systemd/system/gunicorn.service
+
+crontab -e
+
+* * * * * cd "/Users/pinghaili/Documents/GC/1004 Data Programming/soft-ui-dashboard-django" && "/Users/pinghaili/Documents/GC/1004 Data Programming/soft-ui-dashboard-django/env/bin/python" manage.py fetch_job_data_task
+
+python manage.py flush   
+
+```
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+User=youruser
+Group=www-data
+WorkingDirectory=/home/200584564/Pinghai.Li.BDAT1004Final
+ExecStart=/path/to/your/virtualenv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/path/to/your/django/project/gunicorn.sock myproject.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+```
+
+sudo systemctl start gunicorn
+sudo systemctl enable gunicorn
