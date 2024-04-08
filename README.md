@@ -305,3 +305,20 @@ WantedBy=multi-user.target
 
 sudo systemctl start gunicorn
 sudo systemctl enable gunicorn
+
+sudo vim /etc/nginx/sites-available/mynginxproject
+
+sudo ln -s /etc/nginx/sites-available/mynginxproject /etc/nginx/sites-enabled/
+
+server {
+    listen 80;
+    server_name 172.203.239.12;
+
+    location / {
+        proxy_pass http://localhost:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
