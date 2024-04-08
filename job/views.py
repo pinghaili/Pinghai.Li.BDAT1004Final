@@ -1,6 +1,7 @@
 from rest_framework import generics
 from .models import Job
 from .serializers import JobSerializer
+from .tasks import fetch_data_task
 
 class JobList(generics.ListAPIView):
     queryset = Job.objects.all()
@@ -20,3 +21,5 @@ class JobRangeList(generics.ListAPIView):
         if start is not None and end is not None:
             queryset = queryset[int(start):int(end)]
         return queryset
+    
+fetch_data_task()

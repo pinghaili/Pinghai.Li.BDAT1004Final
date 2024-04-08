@@ -18,7 +18,7 @@ from django.urls import include, path
 from job import views
 
 urlpatterns = [
-    path('', include('home.urls')),
+    path('home/', include('home.urls')),
     path("admin/", admin.site.urls),
     path("", include('admin_soft.urls')),
     path('job/', views.JobList.as_view(), name='job-list'),

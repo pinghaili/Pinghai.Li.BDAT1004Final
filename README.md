@@ -261,3 +261,12 @@ This design is a pixel-perfect [Bootstrap 5](https://www.admin-dashboards.com/bo
 
 ---
 [Soft UI Dashboard - Django Template](https://www.creative-tim.com/product/soft-ui-dashboard-django) - Provided by [Creative Tim](https://www.creative-tim.com/) and [AppSeed](https://appseed.us)
+
+python manage.py runserver
+
+python manage.py makemigrations
+
+python manage.py makemigrations job
+
+python manage.py migrate  
+
