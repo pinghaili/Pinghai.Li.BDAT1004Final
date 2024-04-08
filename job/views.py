@@ -17,6 +17,7 @@ class JobRangeList(generics.ListAPIView):
         queryset = Job.objects.all()
         start = self.request.query_params.get('start', None)
         end = self.request.query_params.get('end', None)
+
         if start is not None and end is not None:
             queryset = queryset[int(start):int(end)]
         return queryset
