@@ -36,7 +36,7 @@
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Countries</p>
                     <h5 class="font-weight-bolder mb-0">
                       <span id="countries">0</span>
-                      <span class="text-success text-sm font-weight-bolder">+3%</span>
+                      <!-- <span class="text-success text-sm font-weight-bolder">+3%</span> -->
                     </h5>
                   </div>
                 </div>
@@ -340,8 +340,8 @@
       salaryData.forEach(job => {
         const averageSalary = (Number(job.salary_min) + Number(job.salary_max)) / 2;
 
-        const bin = Math.floor(averageSalary / 1000) * 1000; 
-        const binLabel = `${bin}-${bin + 999}`;
+        const bin = Math.floor(averageSalary / 2000) * 2000; 
+        const binLabel = `${bin}-${bin + 1999}`;
 
         if (!salaryBins[binLabel]) {
             salaryBins[binLabel] = 1; 
