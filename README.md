@@ -284,6 +284,9 @@ sudo vim /etc/systemd/system/gunicorn.service
 
 crontab -e
 
+0 0 * * * cd "/home/200584564/Pinghai.Li.BDAT1004Final" && "/home/200584564/Pinghai.Li.BDAT1004Final/myenv/bin/python" manage.py fetch_job_data_task
+
+
 * * * * * cd "/Users/pinghaili/Documents/GC/1004 Data Programming/soft-ui-dashboard-django" && "/Users/pinghaili/Documents/GC/1004 Data Programming/soft-ui-dashboard-django/env/bin/python" manage.py fetch_job_data_task
 
 python manage.py flush   
